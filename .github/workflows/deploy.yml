@@ -1,3 +1,5 @@
+name: Deploy Docusaurus site
+
 on:
   push:
     branches:
@@ -23,4 +25,7 @@ jobs:
         run: npm run build
       
       - name: Deploy Docusaurus
+        env:
+          GIT_USER: github-actions[bot]
+          GIT_PASS: ${{ secrets.GITHUB_TOKEN }}
         run: npm run deploy

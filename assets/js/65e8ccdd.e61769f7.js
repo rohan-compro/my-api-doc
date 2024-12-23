@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_api_doc=self.webpackChunkmy_api_doc||[]).push([[605],{3826:a=>{a.exports=JSON.parse('{"allTagsPath":"/my-api-doc/blog/tags","slug":"/my-api-doc/blog/tags/facebook","name":"facebook","count":1,"permalink":"/my-api-doc/blog/tags/facebook"}')}}]);

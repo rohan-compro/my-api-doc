@@ -5,7 +5,7 @@ set -e
 
 # Set repository variables
 CURRENT_REPO_DIR=$(pwd)          # The current repository (where you are running the script)
-EXTERNAL_REPO_URL="https://github.com/rohan-compro/marvel"  # URL of the external repository
+EXTERNAL_REPO_URL="https://$GH_TOKEN@github.com/rohan-compro/marvel"  # URL of the external repository with authentication token
 EXTERNAL_REPO_DIR="external-repo"  # Folder to clone the external repository
 
 # Step 1: Clone the external repository (without its .git folder)

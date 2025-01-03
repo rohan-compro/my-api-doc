@@ -31,6 +31,8 @@ jobs:
       # Step 5: Run your script to clone the external repo and copy files
       - name: Clone external repo and copy files
         run: ./scripts/clone-and-copy.sh  # Ensure the script has execute permissions (chmod +x)
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
       # Step 6: Build the Docusaurus site
       - name: Build Docusaurus

@@ -26,12 +26,4 @@ cp -r "$EXTERNAL_REPO_DIR"/* "$TARGET_DIR/"
 echo "Cleaning up the cloned external repository..."
 rm -rf "$EXTERNAL_REPO_DIR"
 
-# Step 5: Build the Docusaurus site
-echo "Building the Docusaurus site..."
-npm run build
-
-# Step 6: Deploy to Netlify using the CLI
-echo "Deploying to Netlify..."
-npx netlify deploy --prod --dir=build
-
-echo "Deployment complete. You can now commit and push the changes to your repository."
+echo "Done. You can now commit and push the changes to your repository."

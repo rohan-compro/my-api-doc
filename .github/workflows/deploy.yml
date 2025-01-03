@@ -1,47 +1,44 @@
-name: Deploy to Netlify
+name: Deploy Docusaurus Site
 
 on:
   push:
     branches:
-      - main  # Change this to the branch you want to trigger the deployment
+      - master
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout the code
+      # Step 1: Checkout the current repository
+      - name: Checkout repository
         uses: actions/checkout@v3
 
-      # Step 1: Ensure the script is executable
-      - name: Make script executable
-        run: chmod +x ./scripts/clone-and-copy.sh
-
-      # Step 2: Ensure the script is executable
-      - name: Make script executable
-        run: chmod +x ./scripts/clone-and-copy.sh
-      
-      # Step 3: Run your custom script
-      - name: Run clone and copy script
-        run: ./scripts/clone-and-copy.sh
-
-      # Step 4: Set up Node.js
+      # Step 2: Set up Node.js
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'  # Ensure this matches your project's Node version
+          node-version: '18'  # Ensure this matches your project requirements
 
-      # Step 5: Install dependencies
+      # Step 3: Install dependencies
       - name: Install dependencies
-        run: npm ci
+        run: npm install
 
-      # Step 6: Build the Docusaurus site
-      - name: Build Docusaurus site
+      # Step 4: Run your script to clone the external repo and copy files
+      - name: Clone external repo and copy files
+        run: ./scripts/clone-and-copy.sh  # Ensure the script has execute permissions (chmod +x)
+
+      # Step 5: Build the Docusaurus site
+      - name: Build Docusaurus
         run: npm run build
 
-      # Step :7 Deploy to Netlify
+      # Step 6: Install Netlify CLI
+      - name: Install Netlify CLI
+        run: npx netlify-cli
+
+      # Step 7: Deploy to Netlify using the CLI
       - name: Deploy to Netlify
-        run: npx netlify deploy --prod --dir=build
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        run: npx netlify deploy --prod --dir=build --site=$NETLIFY_SITE_ID

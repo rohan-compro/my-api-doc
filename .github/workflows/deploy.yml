@@ -42,11 +42,7 @@ jobs:
       - name: Build Docusaurus
         run: npm run build
 
-      # Step 8: Install Netlify CLI
-      - name: Install Netlify CLI
-        run: npx netlify-cli
-
-      # Step 9: Deploy to Netlify using the CLI
+      # Step 8: Deploy to Netlify using the CLI
       - name: Deploy to Netlify
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}

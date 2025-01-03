@@ -6,10 +6,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 (module.exports = {
   title: 'Rohan Site',
   tagline: 'Dinosaurs are cool',
-  url: 'https://rohan-compro.github.io',
-  baseUrl: '/my-api-doc/',
-  // Enabling trailingSlash to avoid issues with GitHub Pages
-  trailingSlash: true,
+  baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',

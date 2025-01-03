@@ -13,7 +13,7 @@ echo "Cloning marvel repository..."
 git clone --depth 1 --single-branch $EXTERNAL_REPO_URL $EXTERNAL_REPO_DIR
 
 # Step 2: Ensure the target folder is clean
-TARGET_DIR="$CURRENT_REPO_DIR/docs/sdk"
+TARGET_DIR="$CURRENT_REPO_DIR/docs"
 echo "Ensuring target folder $TARGET_DIR is clean..."
 rm -rf "$TARGET_DIR"
 mkdir -p "$TARGET_DIR"

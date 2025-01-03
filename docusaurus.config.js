@@ -10,9 +10,6 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
-  organizationName: 'rohan-compro', // Usually your GitHub org/user name.
-  projectName: 'my-api-doc', // Usually your repo name.
-
   presets: [
     [
       '@docusaurus/preset-classic',

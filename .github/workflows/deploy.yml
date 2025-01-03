@@ -24,19 +24,23 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      # Step 4: Run your script to clone the external repo and copy files
+      # Step 4: Ensure the script is executable
+      - name: Make script executable
+        run: chmod +x ./scripts/clone-and-copy.sh
+
+      # Step 5: Run your script to clone the external repo and copy files
       - name: Clone external repo and copy files
         run: ./scripts/clone-and-copy.sh  # Ensure the script has execute permissions (chmod +x)
 
-      # Step 5: Build the Docusaurus site
+      # Step 6: Build the Docusaurus site
       - name: Build Docusaurus
         run: npm run build
 
-      # Step 6: Install Netlify CLI
+      # Step 7: Install Netlify CLI
       - name: Install Netlify CLI
         run: npx netlify-cli
 
-      # Step 7: Deploy to Netlify using the CLI
+      # Step 8: Deploy to Netlify using the CLI
       - name: Deploy to Netlify
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
